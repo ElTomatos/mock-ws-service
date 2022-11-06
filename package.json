@@ -1,0 +1,22 @@
+{
+  "name": "mock-ws-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./server/index.js",
+    "start:css": "tailwindcss -i ./client/src/styles.css -o ./client/styles.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "jsoneditor": "^9.9.2",
+    "socket.io": "^4.5.3",
+    "ws": "^8.10.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.2"
+  }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mock Websockets</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/jsoneditor@9.9.2/dist/jsoneditor.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jsoneditor@9.9.2/dist/jsoneditor.min.js"></script>
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+  <body class="bg-slate-200">
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold mt-5">Mock Websockets</h1>
+
+      <!-- SEND MESSAGE FORM -->
+      <div class="mt-5">
+        <form action="#" method="POST" id="send-form">
+          <div class="overflow-hidden shadow sm:rounded-md">
+            <div class="bg-white p-4">
+                <h2 class="text-2xl mb-5">Send message</h1>
+                <div class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg hidden" id="error-alert">
+                </div>
+              <div>
+                <textarea
+                  id="message"
+                  rows="4"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                  placeholder="Paste JSON for message body"
+                ></textarea>
+              </div>
+
+              <div class="flex justify-between">
+                <button
+                  class="bg-sky-500 text-white rounded-lg px-2 py-2 hover:bg-sky-700 mt-3"
+                  type="submit"
+                  id="send-message-btn"
+                >
+                  Send message
+                </button>
+
+                <button class="bg-indigo-500 text-white rounded-lg px-2 py-2 hover:bg-indigo-700 mt-3" id="open-json-edit-modal" type="button">Open editor</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+          <!-- MESSAGES HISTORY -->
+        <div class="mt-5">
+            <div class="overflow-hidden shadow sm:rounded-md">
+                <div class="bg-white p-4 pb-2">
+                    <h2 class="text-2xl mb-2">History</h1>
+                    <div id="history"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JSON EDITOR MODAL -->
+    <div
+      id="json-editor-modal"
+      tabindex="-1"
+      aria-hidden="true"
+      class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full"
+    >
+      <div class="relative p-4 w-full h-full md:h-auto">
+        <div class="relative bg-white rounded-lg shadow">
+          <div class="flex justify-between items-start p-4 rounded-t border-b">
+            <h3 class="text-xl font-semibold text-gray-900">Edit message</h3>
+          </div>
+          <div class="p-6 space-y-6">
+            <div id="json-editor"></div>
+          </div>
+          <div
+            class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200"
+          >
+            <button
+              id="jsone-editor-accept"
+              type="button"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+            >
+              Send
+            </button>
+            <button
+              id="jsone-editor-cancel"
+              type="button"
+              class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
